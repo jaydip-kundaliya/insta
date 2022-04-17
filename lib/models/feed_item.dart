@@ -6,6 +6,7 @@ import 'user.dart';
 @immutable
 class FeedItem {
   const FeedItem({
+    this.id,
     this.owner,
     this.postImage,
     this.postDescription,
@@ -16,6 +17,9 @@ class FeedItem {
     this.relatedUsers,
     this.comments,
   });
+
+  /// unique feed post id
+  final String? id;
 
   /// owner user of single feed post
   final User? owner;

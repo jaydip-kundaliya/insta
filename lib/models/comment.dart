@@ -5,12 +5,16 @@ import 'user.dart';
 @immutable
 class Comment {
   const Comment({
+    this.id,
     this.user,
     this.commentText,
     this.totalLikes,
     this.commentTime,
     this.replies,
   });
+
+  /// unique comment-id
+  final String? id;
 
   /// comment owner/user info
   final User? user;
