@@ -8,6 +8,9 @@ class FeedPostView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      height: 150,
+      color: Colors.amberAccent,
+    );
   }
 }

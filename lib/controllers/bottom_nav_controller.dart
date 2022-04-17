@@ -7,10 +7,14 @@ import '../ui/feed/feed_page.dart';
 import '../ui/notification/notification_page.dart';
 import '../ui/profile/profile_page.dart';
 import '../ui/search/search_page.dart';
+import 'feed_controller.dart';
 
 /// Get-X controller for control [BottomNavigator]
 /// include 5 page & current index
 class BottomNavController extends GetxController {
+  /// function to call controller it-self
+  ///
+  /// Get-x find() function to get instance of controller
   static BottomNavController get bottomNavController => Get.find();
 
   // current UI page index
@@ -36,5 +40,6 @@ class BottomNavigatorBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<BottomNavController>(() => BottomNavController());
+    Get.lazyPut<FeedController>(() => FeedController());
   }
 }

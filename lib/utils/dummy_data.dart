@@ -134,7 +134,7 @@ class DummyRepo {
       Comment(
         id: '06',
         commentText: 'This is comment 06',
-        user: users()[5],
+        user: users()[4],
         totalLikes: 120,
         commentTime: dateTimeDataList[5],
       ),
