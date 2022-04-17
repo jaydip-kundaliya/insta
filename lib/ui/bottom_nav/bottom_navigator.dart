@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/bottom_nav_controller.dart';
 
+/// Main Page to display all 5 pages of home screen
 class BottomNavigator extends StatelessWidget {
   const BottomNavigator({Key? key}) : super(key: key);
 
@@ -27,6 +28,7 @@ class BottomNavigator extends StatelessWidget {
     );
   }
 
+  // bottom navigation items list for display pages icons
   List<BottomNavigationBarItem> _bottomNavigationBarItems() {
     return const <BottomNavigationBarItem>[
       BottomNavigationBarItem(

@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 
 import 'services/route_service.dart';
 
+/// Application Start-up Point
+///
+/// Material Page with initial route
 class InstagramCloneApp extends StatelessWidget {
   const InstagramCloneApp({Key? key}) : super(key: key);
 
