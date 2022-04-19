@@ -1,5 +1,6 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 import '../../models/comment.dart';
 import '../../models/feed_item.dart';
@@ -153,8 +154,8 @@ class _FeedPostBottom extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 2),
-        Row(
-          children: [
+        Wrap(
+          children: <Widget>[
             Text(
               '${feedItem.owner?.username}',
               style: const TextStyle(
@@ -162,7 +163,19 @@ class _FeedPostBottom extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 2),
-            Text('${feedItem.postDescription}'),
+            ReadMoreText(
+              '${feedItem.postDescription}',
+              style: const TextStyle(color: Colors.black),
+              trimMode: TrimMode.Line,
+              trimLines: 2,
+              trimCollapsedText: 'more',
+              moreStyle: TextStyle(
+                fontWeight: FontWeight.w400,
+                color: Colors.grey[600],
+              ),
+              trimExpandedText: '',
+            ),
+            //Text('${feedItem.postDescription}'),
           ],
         ),
         _CommentSection(comments: feedItem.comments ?? <Comment>[]),
