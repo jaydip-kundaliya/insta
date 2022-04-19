@@ -1,6 +1,7 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/comment.dart';
 import '../../models/feed_item.dart';
 import '../../models/user.dart';
 import '../../utils/dummy_data.dart';
@@ -145,13 +146,101 @@ class _FeedPostBottom extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
-        Text('${feedItem.totalViews} views'),
-        Text('${feedItem.postDescription}'),
-        const SizedBox(height: 8),
-        const _EasyCommentView(),
         Text(
-          feedItem.postDateTime!.toBasicString(),
+          '${feedItem.totalLikes} likes',
+          style: const TextStyle(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        const SizedBox(height: 2),
+        Row(
+          children: [
+            Text(
+              '${feedItem.owner?.username}',
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(width: 2),
+            Text('${feedItem.postDescription}'),
+          ],
+        ),
+        _CommentSection(comments: feedItem.comments ?? <Comment>[]),
+        const _EasyCommentView(),
+        const SizedBox(height: 2),
+        Text(
+          feedItem.postDateTime!.toTimeAgo(),
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            color: Colors.grey[600],
+          ),
         )
+      ],
+    );
+  }
+}
+
+class _CommentSection extends StatelessWidget {
+  const _CommentSection({
+    Key? key,
+    this.comments = const <Comment>[],
+  }) : super(key: key);
+
+  final List<Comment> comments;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        comments.isNotEmpty
+            ? Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 5.0,
+                ),
+                child: Text(
+                  'View all ${comments.length} comments',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey[600],
+                  ),
+                ),
+              )
+            : const SizedBox(),
+        comments.isNotEmpty
+            ? Padding(
+                padding: const EdgeInsets.only(bottom: 4.0),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      '${comments[0].user?.username}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(width: 2),
+                    Text('${comments[0].commentText}'),
+                  ],
+                ),
+              )
+            : const SizedBox(),
+        comments.length > 1
+            ? Padding(
+                padding: const EdgeInsets.symmetric(vertical: 3.0),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      '${comments[1].user?.username}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(width: 2),
+                    Text('${comments[1].commentText}'),
+                  ],
+                ),
+              )
+            : const SizedBox(),
+        const SizedBox(height: 3),
       ],
     );
   }
@@ -170,11 +259,17 @@ class _EasyCommentView extends StatelessWidget {
           ),
           child: ProfileAvatar(
             imageUrl: DummyRepo().profileAvatars[0],
-            radius: 15,
+            radius: 12,
           ),
         ),
-        const Expanded(
-          child: Text('Add a comment...'),
+        Expanded(
+          child: Text(
+            'Add a comment...',
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              color: Colors.grey[600],
+            ),
+          ),
         ),
       ],
     );
