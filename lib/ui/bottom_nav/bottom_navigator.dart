@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/bottom_nav_controller.dart';
@@ -20,6 +21,9 @@ class BottomNavigator extends StatelessWidget {
               BottomNavController.bottomNavController.currentIndex.value,
           items: _bottomNavigationBarItems(),
           type: BottomNavigationBarType.fixed,
+          iconSize: 30,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
           onTap: (int value) {
             BottomNavController.bottomNavController.changeCurrentIndex(value);
           },
@@ -33,7 +37,8 @@ class BottomNavigator extends StatelessWidget {
     return const <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         label: 'home',
-        icon: Icon(Icons.home),
+        icon: Icon(Icons.home_outlined),
+        activeIcon: Icon(Icons.home),
       ),
       BottomNavigationBarItem(
         label: 'search',
@@ -41,15 +46,17 @@ class BottomNavigator extends StatelessWidget {
       ),
       BottomNavigationBarItem(
         label: 'add_post',
-        icon: Icon(Icons.add_box_outlined),
+        icon: Icon(FontAwesomeIcons.clapperboard),
       ),
       BottomNavigationBarItem(
         label: 'notification',
-        icon: Icon(Icons.notifications),
+        icon: Icon(Icons.favorite_outline),
+        activeIcon: Icon(Icons.favorite, size: 5),
       ),
       BottomNavigationBarItem(
         label: 'profile',
-        icon: Icon(Icons.person),
+        icon: Icon(Icons.person_outline),
+        activeIcon: Icon(Icons.person),
       ),
     ];
   }

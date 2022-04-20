@@ -78,7 +78,9 @@ class _UserPlat extends StatelessWidget {
         Expanded(
           child: Text(
             user.username ?? '',
-            style: AppTextStyle.poppins(),
+            style: AppTextStyle.poppins(
+              fontSize: 13,
+            ),
           ),
         ),
         const Icon(
