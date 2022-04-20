@@ -5,6 +5,7 @@ import 'package:readmore/readmore.dart';
 import '../../models/comment.dart';
 import '../../models/feed_item.dart';
 import '../../models/user.dart';
+import '../../utils/app_text_style.dart';
 import '../../utils/dummy_data.dart';
 import '../../utils/extensions.dart';
 import '../shared/profile_avatar.dart';
@@ -77,6 +78,7 @@ class _UserPlat extends StatelessWidget {
         Expanded(
           child: Text(
             user.username ?? '',
+            style: AppTextStyle.poppins(),
           ),
         ),
         const Icon(
@@ -149,8 +151,9 @@ class _FeedPostBottom extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           '${feedItem.totalLikes} likes',
-          style: const TextStyle(
+          style: AppTextStyle.poppins(
             fontWeight: FontWeight.w600,
+            fontSize: 12,
           ),
         ),
         const SizedBox(height: 2),
@@ -158,18 +161,23 @@ class _FeedPostBottom extends StatelessWidget {
           children: <Widget>[
             Text(
               '${feedItem.owner?.username}',
-              style: const TextStyle(
+              style: AppTextStyle.poppins(
                 fontWeight: FontWeight.w600,
+                fontSize: 13,
               ),
             ),
-            const SizedBox(width: 2),
+            const SizedBox(width: 3),
             ReadMoreText(
               '${feedItem.postDescription}',
-              style: const TextStyle(color: Colors.black),
+              style: AppTextStyle.poppins(
+                color: Colors.black,
+                fontSize: 13,
+              ),
               trimMode: TrimMode.Line,
               trimLines: 2,
               trimCollapsedText: 'more',
-              moreStyle: TextStyle(
+              moreStyle: AppTextStyle.poppins(
+                fontSize: 13,
                 fontWeight: FontWeight.w400,
                 color: Colors.grey[600],
               ),
@@ -183,7 +191,8 @@ class _FeedPostBottom extends StatelessWidget {
         const SizedBox(height: 2),
         Text(
           feedItem.postDateTime!.toTimeAgo(),
-          style: TextStyle(
+          style: AppTextStyle.poppins(
+            fontSize: 10,
             fontWeight: FontWeight.w400,
             color: Colors.grey[600],
           ),
@@ -202,60 +211,55 @@ class _CommentSection extends StatelessWidget {
   final List<Comment> comments;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        comments.isNotEmpty
-            ? Padding(
+    return comments.isNotEmpty
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 5.0,
                 ),
                 child: Text(
                   'View all ${comments.length} comments',
-                  style: TextStyle(
+                  style: AppTextStyle.poppins(
+                    fontSize: 13,
                     fontWeight: FontWeight.w400,
                     color: Colors.grey[600],
                   ),
                 ),
-              )
-            : const SizedBox(),
-        comments.isNotEmpty
-            ? Padding(
-                padding: const EdgeInsets.only(bottom: 4.0),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      '${comments[0].user?.username}',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                      ),
+              ),
+              Column(
+                children: List<Widget>.generate(
+                  comments.length > 2 ? 2 : 1,
+                  (int index) => Padding(
+                    padding: index == 0
+                        ? const EdgeInsets.only(bottom: 5.0)
+                        : const EdgeInsets.symmetric(vertical: 3.0),
+                    child: Row(
+                      children: <Widget>[
+                        Text(
+                          '${comments[index].user?.username}',
+                          style: AppTextStyle.poppins(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(width: 3),
+                        Text(
+                          '${comments[index].commentText}',
+                          style: AppTextStyle.poppins(
+                            fontSize: 13,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 2),
-                    Text('${comments[0].commentText}'),
-                  ],
+                  ),
                 ),
-              )
-            : const SizedBox(),
-        comments.length > 1
-            ? Padding(
-                padding: const EdgeInsets.symmetric(vertical: 3.0),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      '${comments[1].user?.username}',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(width: 2),
-                    Text('${comments[1].commentText}'),
-                  ],
-                ),
-              )
-            : const SizedBox(),
-        const SizedBox(height: 3),
-      ],
-    );
+              ),
+              const SizedBox(height: 3),
+            ],
+          )
+        : const SizedBox(height: 3);
   }
 }
 
@@ -278,7 +282,8 @@ class _EasyCommentView extends StatelessWidget {
         Expanded(
           child: Text(
             'Add a comment...',
-            style: TextStyle(
+            style: AppTextStyle.poppins(
+              fontSize: 13,
               fontWeight: FontWeight.w400,
               color: Colors.grey[600],
             ),
