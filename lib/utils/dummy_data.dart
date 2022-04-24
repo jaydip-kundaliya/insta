@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:story_view/story_view.dart';
+
 import '../models/comment.dart';
 import '../models/feed_item.dart';
 import '../models/user.dart';
@@ -31,184 +34,200 @@ class DummyRepo {
   ];
 
   // list of all available dummy users
-  List<User> users() {
-    return <User>[
-      User(
-        id: '01',
-        name: 'Test User 1',
-        username: 'user_01',
-        avatar: profileAvatars[0],
-      ),
-      User(
-        id: '02',
-        name: 'Test User 2',
-        username: 'user_02',
-        avatar: profileAvatars[1],
-      ),
-      User(
-        id: '03',
-        name: 'Test User 3',
-        username: 'user_03',
-        avatar: profileAvatars[2],
-      ),
-      User(
-        id: '04',
-        name: 'Test User 4',
-        username: 'user_04',
-        avatar: profileAvatars[3],
-      ),
-      User(
-        id: '05',
-        name: 'Test User 5',
-        username: 'user_05',
-        avatar: profileAvatars[4],
-      ),
-    ];
-  }
+  List<User> users() => <User>[
+        User(
+          id: '01',
+          name: 'Test User 1',
+          username: 'user_01',
+          avatar: profileAvatars[0],
+        ),
+        User(
+          id: '02',
+          name: 'Test User 2',
+          username: 'user_02',
+          avatar: profileAvatars[1],
+        ),
+        User(
+          id: '03',
+          name: 'Test User 3',
+          username: 'user_03',
+          avatar: profileAvatars[2],
+        ),
+        User(
+          id: '04',
+          name: 'Test User 4',
+          username: 'user_04',
+          avatar: profileAvatars[3],
+        ),
+        User(
+          id: '05',
+          name: 'Test User 5',
+          username: 'user_05',
+          avatar: profileAvatars[4],
+        ),
+      ];
 
   // list of all available dummy comments
   //
   // including sub-comments as well at some
-  List<Comment> comments() {
-    return <Comment>[
-      Comment(
-        id: '01',
-        commentText: 'This is comment 01',
-        user: users()[0],
-        totalLikes: 40,
-        commentTime: dateTimeDataList[0],
-      ),
-      Comment(
-        id: '02',
-        commentText: 'This is comment 02',
-        user: users()[1],
-        totalLikes: 45,
-        commentTime: dateTimeDataList[1],
-        replies: <Comment>[
-          Comment(
-            id: '09',
-            commentText: 'This is comment 09',
-            user: users()[2],
-            totalLikes: 05,
-            commentTime: dateTimeDataList[3],
-          ),
-          Comment(
-            id: '10',
-            commentText: 'This is comment 10',
-            user: users()[4],
-            totalLikes: 0,
-            commentTime: dateTimeDataList[4],
-          ),
-        ],
-      ),
-      Comment(
-        id: '03',
-        commentText: 'This is comment 03',
-        user: users()[2],
-        totalLikes: 36,
-        commentTime: dateTimeDataList[2],
-      ),
-      Comment(
-        id: '04',
-        commentText: 'This is comment 04',
-        user: users()[3],
-        totalLikes: 15,
-        commentTime: dateTimeDataList[3],
-      ),
-      Comment(
-        id: '05',
-        commentText: 'This is comment 05',
-        user: users()[4],
-        totalLikes: 4,
-        commentTime: dateTimeDataList[4],
-        replies: <Comment>[
-          Comment(
-            id: '11',
-            commentText: 'This is comment 11',
-            user: users()[1],
-            totalLikes: 02,
-            commentTime: dateTimeDataList[7],
-          ),
-        ],
-      ),
-      Comment(
-        id: '06',
-        commentText: 'This is comment 06',
-        user: users()[4],
-        totalLikes: 120,
-        commentTime: dateTimeDataList[5],
-      ),
-      Comment(
-        id: '07',
-        commentText: 'This is comment 07',
-        user: users()[1],
-        totalLikes: 59,
-        commentTime: dateTimeDataList[6],
-      ),
-      Comment(
-        id: '08',
-        commentText: 'This is comment 08',
-        user: users()[2],
-        totalLikes: 150,
-        commentTime: dateTimeDataList[7],
-        replies: <Comment>[
-          Comment(
-            id: '12',
-            commentText: 'This is comment 12',
-            user: users()[0],
-            totalLikes: 04,
-            commentTime: dateTimeDataList[3],
-          ),
-          Comment(
-            id: '13',
-            commentText: 'This is comment 13',
-            user: users()[1],
-            totalLikes: 0,
-            commentTime: dateTimeDataList[7],
-          ),
-          Comment(
-            id: '14',
-            commentText: 'This is comment 14',
-            user: users()[2],
-            totalLikes: 10,
-            commentTime: dateTimeDataList[0],
-          ),
-        ],
-      ),
-    ];
-  }
+  List<Comment> comments() => <Comment>[
+        Comment(
+          id: '01',
+          commentText: 'This is comment 01',
+          user: users()[0],
+          totalLikes: 40,
+          commentTime: dateTimeDataList[0],
+        ),
+        Comment(
+          id: '02',
+          commentText: 'This is comment 02',
+          user: users()[1],
+          totalLikes: 45,
+          commentTime: dateTimeDataList[1],
+          replies: <Comment>[
+            Comment(
+              id: '09',
+              commentText: 'This is comment 09',
+              user: users()[2],
+              totalLikes: 05,
+              commentTime: dateTimeDataList[3],
+            ),
+            Comment(
+              id: '10',
+              commentText: 'This is comment 10',
+              user: users()[4],
+              totalLikes: 0,
+              commentTime: dateTimeDataList[4],
+            ),
+          ],
+        ),
+        Comment(
+          id: '03',
+          commentText: 'This is comment 03',
+          user: users()[2],
+          totalLikes: 36,
+          commentTime: dateTimeDataList[2],
+        ),
+        Comment(
+          id: '04',
+          commentText: 'This is comment 04',
+          user: users()[3],
+          totalLikes: 15,
+          commentTime: dateTimeDataList[3],
+        ),
+        Comment(
+          id: '05',
+          commentText: 'This is comment 05',
+          user: users()[4],
+          totalLikes: 4,
+          commentTime: dateTimeDataList[4],
+          replies: <Comment>[
+            Comment(
+              id: '11',
+              commentText: 'This is comment 11',
+              user: users()[1],
+              totalLikes: 02,
+              commentTime: dateTimeDataList[7],
+            ),
+          ],
+        ),
+        Comment(
+          id: '06',
+          commentText: 'This is comment 06',
+          user: users()[4],
+          totalLikes: 120,
+          commentTime: dateTimeDataList[5],
+        ),
+        Comment(
+          id: '07',
+          commentText: 'This is comment 07',
+          user: users()[1],
+          totalLikes: 59,
+          commentTime: dateTimeDataList[6],
+        ),
+        Comment(
+          id: '08',
+          commentText: 'This is comment 08',
+          user: users()[2],
+          totalLikes: 150,
+          commentTime: dateTimeDataList[7],
+          replies: <Comment>[
+            Comment(
+              id: '12',
+              commentText: 'This is comment 12',
+              user: users()[0],
+              totalLikes: 04,
+              commentTime: dateTimeDataList[3],
+            ),
+            Comment(
+              id: '13',
+              commentText: 'This is comment 13',
+              user: users()[1],
+              totalLikes: 0,
+              commentTime: dateTimeDataList[7],
+            ),
+            Comment(
+              id: '14',
+              commentText: 'This is comment 14',
+              user: users()[2],
+              totalLikes: 10,
+              commentTime: dateTimeDataList[0],
+            ),
+          ],
+        ),
+      ];
 
   // list of all available feed post
-  List<FeedItem> feedItems() {
-    return <FeedItem>[
-      FeedItem(
-        id: '01',
-        owner: users()[0],
-        postImage: profileAvatars[0],
-        postDescription: 'This is Insta-clone feed post item 01',
-        postDateTime: dateTimeDataList[0],
-        totalLikes: 450,
-        totalViews: 10024,
-        totalComments: 54,
-        comments: comments(),
-        // to remove owner from the user list
-        relatedUsers:
-            users().where((User item) => item.id != users()[0].id).toList(),
-      ),
-      FeedItem(
-        id: '02',
-        owner: users()[1],
-        postImage: profileAvatars[2],
-        postDescription: 'This is Insta-clone feed post item 02',
-        postDateTime: dateTimeDataList[4],
-        totalLikes: 500,
-        totalViews: 680,
-        totalComments: 10,
-        comments: comments(),
-        // to remove owner from the user list
-        relatedUsers:
-            users().where((User item) => item.id != users()[0].id).toList(),
-      ),
-    ];
-  }
+  List<FeedItem> feedItems() => <FeedItem>[
+        FeedItem(
+          id: '01',
+          owner: users()[0],
+          postImage: profileAvatars[0],
+          postDescription: 'This is Insta-clone feed post item 01',
+          postDateTime: dateTimeDataList[0],
+          totalLikes: 450,
+          totalViews: 10024,
+          totalComments: 54,
+          comments: comments(),
+          // to remove owner from the user list
+          relatedUsers:
+              users().where((User item) => item.id != users()[0].id).toList(),
+        ),
+        FeedItem(
+          id: '02',
+          owner: users()[1],
+          postImage: profileAvatars[2],
+          postDescription: 'This is Insta-clone feed post item 02',
+          postDateTime: dateTimeDataList[4],
+          totalLikes: 500,
+          totalViews: 680,
+          totalComments: 10,
+          comments: comments(),
+          // to remove owner from the user list
+          relatedUsers:
+              users().where((User item) => item.id != users()[0].id).toList(),
+        ),
+      ];
+
+  // list of all available dummy stories
+  List<StoryItem> storyItems() => <StoryItem>[
+        StoryItem.text(
+          title: 'This is story text 01',
+          backgroundColor: Colors.black,
+        ),
+        StoryItem.pageProviderImage(
+          NetworkImage(
+            profileAvatars[0],
+          ),
+        ),
+        StoryItem.pageProviderImage(
+          NetworkImage(
+            profileAvatars[2],
+          ),
+        ),
+        StoryItem.text(
+          title: 'This is story text 02',
+          backgroundColor: Colors.pink,
+        ),
+      ];
 }

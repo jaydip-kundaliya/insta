@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 /// Register Application Theme
+///
+/// Light theme | Dark theme
 class AppTheme {
+  // it will return light theme with all
+  // app component in dark color
   static ThemeData get lightTheme {
     return ThemeData(
       scaffoldBackgroundColor: LightAppColors.primaryColor,
@@ -20,6 +24,8 @@ class AppTheme {
     );
   }
 
+  // it will return dark theme with all
+  // app component in dark color
   static ThemeData get darkTheme {
     return ThemeData(
       scaffoldBackgroundColor: DarkAppColor.primaryColor,

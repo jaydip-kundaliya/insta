@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../controllers/bottom_nav_controller.dart';
+import '../controllers/stories_controller.dart';
 import '../ui/bottom_nav/bottom_navigator.dart';
+import '../ui/story/story_viewer.dart';
 
 /// Route Management System
 ///
@@ -10,6 +12,7 @@ import '../ui/bottom_nav/bottom_navigator.dart';
 @immutable
 abstract class Routes {
   static const String bottomNav = '/bottom_nav';
+  static const String storyPage = '/story_page';
 }
 
 /// Register pages as par Route Management
@@ -20,12 +23,17 @@ abstract class RoutePages {
   // Include all getPages with binding & middle-wares
   //
   // return page on user event click
-  static List<GetPage<dynamic>> routePages() {
-    return <GetPage<dynamic>>[
-      GetPage<dynamic>(
+  static List<GetPage<String>> routePages() {
+    return <GetPage<String>>[
+      GetPage<String>(
         name: Routes.bottomNav,
         page: () => const BottomNavigator(),
         binding: BottomNavigatorBinding(),
+      ),
+      GetPage<String>(
+        name: Routes.storyPage,
+        page: () => const StoryViewerPage(),
+        binding: StoriesBinding(),
       )
     ];
   }
