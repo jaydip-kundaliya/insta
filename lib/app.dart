@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'services/route_service.dart';
+import 'utils/app_theme.dart';
 
 /// Application Start-up Point
 ///
@@ -13,9 +14,8 @@ class InstagramCloneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       getPages: RoutePages.routePages(),
       initialRoute: RoutePages.initialPage,
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 /// Application font-styling
@@ -17,7 +18,7 @@ abstract class AppTextStyle {
     return GoogleFonts.poppins(
       fontSize: fontSize,
       fontWeight: fontWeight,
-      color: color,
+      color: Theme.of(Get.key.currentState!.context).textTheme.bodyText1?.color,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../controllers/feed_controller.dart';
+import '../shared/app_bar.dart';
 import 'feed_post.dart';
 
 /// Main Home Instagram Feed page
@@ -12,8 +13,8 @@ class FeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Instagram clone'),
+      appBar: const BaseAppbar(
+        title: 'Instagram clone',
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -12,6 +12,7 @@ class BottomNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: IndexedStack(
           index: BottomNavController.bottomNavController.currentIndex.value,
           children: BottomNavController.bottomNavController.bottomPages,
