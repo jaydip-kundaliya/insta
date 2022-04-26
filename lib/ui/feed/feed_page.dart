@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../controllers/feed_controller.dart';
 import '../shared/app_bar.dart';
 import '../story/story_holders.dart';
-import 'feed_post.dart';
+import 'feed_single_post.dart';
 
 /// Main Home Instagram Feed page
 ///

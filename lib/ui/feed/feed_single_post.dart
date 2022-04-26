@@ -1,4 +1,5 @@
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
@@ -38,8 +39,8 @@ class FeedPostView extends StatelessWidget {
           child: ExtendedImage.network(
             feedItem.postImage!,
             width: double.infinity,
-            height: 300,
             fit: BoxFit.contain,
+            constraints: const BoxConstraints(minHeight: 200),
             enableMemoryCache: true,
           ),
         ),
