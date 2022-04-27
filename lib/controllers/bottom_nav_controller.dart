@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../ui/add_post/create_post_page.dart';
 import '../ui/bottom_nav/bottom_navigator.dart';
 import '../ui/feed/feed_page.dart';
 import '../ui/notification/notification_page.dart';
 import '../ui/profile/profile_page.dart';
+import '../ui/reels/reels_page.dart';
 import '../ui/search/search_page.dart';
 import 'feed_controller.dart';
+import 'reel_controller.dart';
 
 /// Get-X controller for control [BottomNavigator]
 /// include 5 page & current index
@@ -24,7 +25,7 @@ class BottomNavController extends GetxController {
   final RxList<Widget> bottomPages = const <Widget>[
     FeedPage(),
     SearchPage(),
-    CreatePostPage(),
+    ReelsPage(),
     NotificationPage(),
     ProfilePage(),
   ].obs;
@@ -41,5 +42,6 @@ class BottomNavigatorBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<BottomNavController>(() => BottomNavController());
     Get.lazyPut<FeedController>(() => FeedController());
+    Get.lazyPut<ReelController>(() => ReelController());
   }
 }

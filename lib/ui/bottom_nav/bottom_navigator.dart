@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/bottom_nav_controller.dart';
+import '../../utils/app_theme.dart';
 import '../../utils/dummy_data.dart';
 import '../shared/profile_avatar.dart';
 
@@ -10,25 +11,28 @@ import '../shared/profile_avatar.dart';
 class BottomNavigator extends StatelessWidget {
   const BottomNavigator({Key? key}) : super(key: key);
 
+  static final BottomNavController _bottomCtr =
+      BottomNavController.bottomNavController;
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: IndexedStack(
-          index: BottomNavController.bottomNavController.currentIndex.value,
-          children: BottomNavController.bottomNavController.bottomPages,
+          index: _bottomCtr.currentIndex.value,
+          children: _bottomCtr.bottomPages,
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex:
-              BottomNavController.bottomNavController.currentIndex.value,
+          currentIndex: _bottomCtr.currentIndex.value,
           items: _bottomNavigationBarItems(),
+          backgroundColor:
+              _bottomCtr.currentIndex.value == 2 ? Colors.black : null,
           type: BottomNavigationBarType.fixed,
           iconSize: 30,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           onTap: (int value) {
-            BottomNavController.bottomNavController.changeCurrentIndex(value);
+            _bottomCtr.changeCurrentIndex(value);
           },
         ),
       ),
@@ -44,6 +48,9 @@ class BottomNavigator extends StatelessWidget {
           'assets/images/home_light.svg',
           width: 25,
           height: 25,
+          color: _bottomCtr.currentIndex.value == 2
+              ? LightAppColors.primaryColor
+              : null,
         ),
         activeIcon: SvgPicture.asset(
           'assets/images/home_solid.svg',
@@ -57,6 +64,9 @@ class BottomNavigator extends StatelessWidget {
           'assets/images/search.svg',
           width: 25,
           height: 25,
+          color: _bottomCtr.currentIndex.value == 2
+              ? LightAppColors.primaryColor
+              : null,
         ),
       ),
       BottomNavigationBarItem(
@@ -78,6 +88,9 @@ class BottomNavigator extends StatelessWidget {
           'assets/images/notification_light.svg',
           width: 25,
           height: 25,
+          color: _bottomCtr.currentIndex.value == 2
+              ? LightAppColors.primaryColor
+              : null,
         ),
         activeIcon: SvgPicture.asset(
           'assets/images/notification_solid.svg',

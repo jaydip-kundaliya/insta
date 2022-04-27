@@ -18,7 +18,8 @@ abstract class AppTextStyle {
     return GoogleFonts.poppins(
       fontSize: fontSize,
       fontWeight: fontWeight,
-      color: Theme.of(Get.key.currentState!.context).textTheme.bodyText1?.color,
+      color: color ??
+          Theme.of(Get.key.currentState!.context).textTheme.bodyText1?.color,
     );
   }
 }

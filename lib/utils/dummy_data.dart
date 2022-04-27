@@ -3,6 +3,7 @@ import 'package:story_view/story_view.dart';
 
 import '../models/comment.dart';
 import '../models/feed_item.dart';
+import '../models/reel.dart';
 import '../models/user.dart';
 
 /// This application is just for demo purpose
@@ -250,6 +251,38 @@ class DummyRepo {
         StoryItem.text(
           title: 'This is story text 02',
           backgroundColor: Colors.pink,
+        ),
+      ];
+
+  // list of all available reels data
+  List<Reel> reelsItems() => <Reel>[
+        Reel(
+          id: '01',
+          user: users()[0],
+          description: 'This is reel 01',
+          totalLikes: 10000,
+          totalComments: 485,
+        ),
+        Reel(
+          id: '02',
+          user: users()[1],
+          description: 'This is reel 02',
+          totalLikes: 500,
+          totalComments: 20,
+        ),
+        Reel(
+          id: '03',
+          user: users()[0],
+          description: 'This is reel 03',
+          totalLikes: 1500,
+          totalComments: 45,
+        ),
+        Reel(
+          id: '04',
+          user: users()[2],
+          description: 'This is reel 04',
+          totalLikes: 14302,
+          totalComments: 120,
         ),
       ];
 }
