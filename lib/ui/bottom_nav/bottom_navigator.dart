@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/bottom_nav_controller.dart';
+import '../../utils/dummy_data.dart';
+import '../shared/profile_avatar.dart';
 
 /// Main Page to display all 5 pages of home screen
 class BottomNavigator extends StatelessWidget {
@@ -35,30 +37,60 @@ class BottomNavigator extends StatelessWidget {
 
   // bottom navigation items list for display pages icons
   List<BottomNavigationBarItem> _bottomNavigationBarItems() {
-    return const <BottomNavigationBarItem>[
+    return <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         label: 'home',
-        icon: Icon(Icons.home_outlined),
-        activeIcon: Icon(Icons.home),
+        icon: SvgPicture.asset(
+          'assets/images/home_light.svg',
+          width: 25,
+          height: 25,
+        ),
+        activeIcon: SvgPicture.asset(
+          'assets/images/home_solid.svg',
+          width: 25,
+          height: 25,
+        ),
       ),
       BottomNavigationBarItem(
         label: 'search',
-        icon: Icon(Icons.search),
+        icon: SvgPicture.asset(
+          'assets/images/search.svg',
+          width: 25,
+          height: 25,
+        ),
       ),
       BottomNavigationBarItem(
-        label: 'add_post',
-        icon: Icon(FontAwesomeIcons.clapperboard),
-      ),
+          label: 'reels',
+          icon: SvgPicture.asset(
+            'assets/images/reels.svg',
+            width: 23,
+            height: 23,
+          ),
+          activeIcon: SvgPicture.asset(
+            'assets/images/reels.svg',
+            width: 25,
+            height: 25,
+            color: Colors.white,
+          )),
       BottomNavigationBarItem(
         label: 'notification',
-        icon: Icon(Icons.favorite_outline),
-        activeIcon: Icon(Icons.favorite, size: 5),
+        icon: SvgPicture.asset(
+          'assets/images/notification_light.svg',
+          width: 25,
+          height: 25,
+        ),
+        activeIcon: SvgPicture.asset(
+          'assets/images/notification_solid.svg',
+          width: 25,
+          height: 25,
+        ),
       ),
       BottomNavigationBarItem(
-        label: 'profile',
-        icon: Icon(Icons.person_outline),
-        activeIcon: Icon(Icons.person),
-      ),
+          label: 'profile',
+          icon: ProfileAvatar(
+            imageUrl: DummyRepo().profileAvatars[0],
+            radius: 12,
+          )),
     ];
   }
 }
