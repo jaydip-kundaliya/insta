@@ -6,6 +6,7 @@ import 'user.dart';
 class Reel {
   const Reel({
     this.id,
+    this.reelPost,
     this.user,
     this.description,
     this.totalLikes,
@@ -14,6 +15,9 @@ class Reel {
 
   /// unique reel-id
   final String? id;
+
+  /// real content it self
+  final String? reelPost;
 
   /// reel's owner user
   final User? user;

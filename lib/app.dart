@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'services/route_service.dart';
@@ -12,12 +13,19 @@ class InstagramCloneApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      getPages: RoutePages.routePages(),
-      initialRoute: RoutePages.initialPage,
+    /// flutter screen util
+    ///
+    /// For responsive UI
+    return ScreenUtilInit(
+      builder: (_) {
+        return GetMaterialApp(
+          title: 'Flutter Demo',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          getPages: RoutePages.routePages(),
+          initialRoute: RoutePages.initialPage,
+        );
+      },
     );
   }
 }

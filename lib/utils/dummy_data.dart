@@ -258,6 +258,7 @@ class DummyRepo {
   List<Reel> reelsItems() => <Reel>[
         Reel(
           id: '01',
+          reelPost: posts[0],
           user: users()[0],
           description: 'This is reel 01',
           totalLikes: 10000,
@@ -265,6 +266,7 @@ class DummyRepo {
         ),
         Reel(
           id: '02',
+          reelPost: posts[1],
           user: users()[1],
           description: 'This is reel 02',
           totalLikes: 500,
@@ -272,13 +274,15 @@ class DummyRepo {
         ),
         Reel(
           id: '03',
+          reelPost: posts[2],
           user: users()[0],
           description: 'This is reel 03',
-          totalLikes: 1500,
+          totalLikes: 1500000,
           totalComments: 45,
         ),
         Reel(
           id: '04',
+          reelPost: posts[0],
           user: users()[2],
           description: 'This is reel 04',
           totalLikes: 14302,

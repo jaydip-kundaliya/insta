@@ -43,7 +43,7 @@ class ReelsPage extends StatelessWidget {
                           ),
                         ),
                         const Icon(
-                          Icons.camera,
+                          Icons.local_see_outlined,
                           color: Colors.white,
                         ),
                       ],
